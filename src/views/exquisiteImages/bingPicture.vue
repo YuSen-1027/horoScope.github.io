@@ -12,6 +12,7 @@
     <span v-else>
       <a-spin :spinning="loading">
         <div class="cont">
+          <div class="icon"><PictureOutlined></PictureOutlined></div>
           <div class="date">时间：{{ bingUrl.date }}</div>
           <div class="title">详情：{{ bingUrl.title }}</div>
           <div class="img">
@@ -27,6 +28,7 @@
 /* 引入 */
 import { ref, reactive } from 'vue';
 import axios from 'axios';
+import { PictureOutlined } from '@ant-design/icons-vue';
 
 /* 定义 imgUrl 接口 */
 interface imgUrl {
@@ -71,16 +73,23 @@ const getBingImg = async () => {
     background-color: black;
     height: 600px;
     position: relative;
+    .icon {
+      position: absolute;
+      font-size: 200px;
+      top: -2%;
+      left: 5%;
+      color: white;
+    }
     .date {
       position: absolute;
       font-size: 30px;
-      top: 15%;
+      top: 45%;
       left: 5%;
       color: white;
     }
     .title {
       position: absolute;
-      top: 30%;
+      top: 55%;
       left: 5%;
       font-size: 20px;
       width: 300px;

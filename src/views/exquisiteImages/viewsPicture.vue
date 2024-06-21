@@ -12,10 +12,9 @@
     <span v-else>
       <a-spin :spinning="loading">
         <div class="cont">
-          <div class="date">时间：{{ bingUrl.date }}</div>
-          <div class="title">详情：{{ bingUrl.title }}</div>
+          <div class="icon"><PictureOutlined></PictureOutlined></div>
           <div class="img">
-            <a-image :width="1000" :src="bingUrl.url" />
+            <a-image :width="900" :src="bingUrl.url" />
           </div>
         </div>
       </a-spin>
@@ -27,18 +26,14 @@
 /* 引入 */
 import { ref, reactive } from 'vue';
 import axios from 'axios';
-
+import { PictureOutlined } from '@ant-design/icons-vue';
 /* 定义 imgUrl 接口 */
 interface imgUrl {
-  date: number;
-  title: string;
   url: string;
 }
 
 /* 数据 */
 let bingUrl = reactive<imgUrl>({
-  date: 10000000,
-  title: '',
   url: '',
 });
 const loading = ref<boolean>(false);
@@ -49,9 +44,8 @@ const getBingImg = async () => {
   loading.value = true;
   try {
     const { data } = await axios.get('https://api.vvhan.com/api/wallpaper/views?type=json');
-    console.log(data);
     if (data.success) {
-      bingUrl = data.data;
+      bingUrl = data;
     } else {
       alert('获取数据失败，请重试');
     }
@@ -71,26 +65,18 @@ const getBingImg = async () => {
     background-color: black;
     height: 600px;
     position: relative;
-    .date {
+    .icon {
       position: absolute;
-      font-size: 30px;
-      top: 15%;
+      font-size: 200px;
+      top: -2%;
       left: 5%;
-      color: white;
-    }
-    .title {
-      position: absolute;
-      top: 30%;
-      left: 5%;
-      font-size: 20px;
-      width: 300px;
       color: white;
     }
     .img {
       position: absolute;
       // border: 1px solid white;
-      top: 2.5%;
-      right: -0.5%;
+      top: 3%;
+      right: -5%;
       width: 1100px;
     }
   }
