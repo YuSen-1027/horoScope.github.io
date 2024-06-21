@@ -6,15 +6,15 @@
         <h1 class="title">冷静</h1>
         <a-menu v-model:selectedKeys="selectedKeys" theme="dark" mode="inline">
           <a-menu-item key="1">
-            <user-outlined />
+            <StarOutlined />
             <span>星座运势</span>
           </a-menu-item>
           <a-menu-item key="2">
-            <video-camera-outlined />
+            <PictureOutlined />
             <span>精美头像</span>
           </a-menu-item>
           <a-menu-item key="3">
-            <upload-outlined />
+            <SoundOutlined/>
             <span>胡说八道</span>
           </a-menu-item>
         </a-menu>
@@ -39,7 +39,7 @@
         <span v-if="selectedKeys[0] == '3'">
           <a-layout-content>
             <!-- 胡说八道 -->
-            789
+            <sentencesIndex></sentencesIndex>
           </a-layout-content>
         </span>
       </a-layout>
@@ -50,12 +50,13 @@
 <script lang="ts" setup>
 import starSignIndex from '@/views/starSign/index.vue';
 import avatarIndex from '@/views/exquisiteImages/index.vue';
+import sentencesIndex from '@/views/goodSentences/index.vue';
 import {
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  StarOutlined,
+  PictureOutlined,
+  SoundOutlined
 } from '@ant-design/icons-vue';
 import { ref } from 'vue';
 const selectedKeys = ref<string[]>(['2']);

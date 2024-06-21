@@ -1,6 +1,6 @@
 <template>
   <div id="bingPicture">
-    <a-button type="primary" @click="getBingImg">点我获取风景图片</a-button>
+    <a-button type="primary" @click="getBingImg">点我获取二次元图片</a-button>
     <span v-if="bingUrl.url == ''">
       <a-empty
         image="https://gw.alipayobjects.com/mdn/miniapp_social/afts/img/A*pevERLJC9v0AAAAAAAAAAABjAQAAAQ/original"
@@ -14,7 +14,7 @@
         <div class="cont">
           <div class="icon"><PictureOutlined></PictureOutlined></div>
           <div class="img">
-            <a-image :width="900" :src="bingUrl.url" />
+            <a-image :width="1000" :src="bingUrl.url" />
           </div>
         </div>
       </a-spin>
@@ -43,7 +43,7 @@ const getBingImg = async () => {
   bingUrl.url = 'null';
   loading.value = true;
   try {
-    const { data } = await axios.get('https://api.vvhan.com/api/wallpaper/views?type=json');
+    const { data } = await axios.get('https://api.vvhan.com/api/wallpaper/acg?type=json');
     if (data.success) {
       bingUrl = data;
     } else {
@@ -76,7 +76,7 @@ const getBingImg = async () => {
       position: absolute;
       // border: 1px solid white;
       top: 3%;
-      right: -2%;
+      right: 5%;
       width: 1000px;
     }
   }
