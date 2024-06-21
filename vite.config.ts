@@ -17,18 +17,6 @@ export default defineConfig({
       'utils': resolve(__dirname, 'src/utils'),
     },
   },
-  css: {
-    // css预处理器
-    preprocessorOptions: {
-      less: {
-        modifyVars: {
-          // 全局less变量存储路径(配置less的全局变量)
-          hack: `true; @import (reference) "${resolve('src/public/config.less')}";`,
-        },
-        javascriptEnabled: true,
-      }
-    }
-  },
   // 开发服务器配置
   server: {
     host: true,
