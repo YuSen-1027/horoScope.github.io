@@ -31,3 +31,7 @@ npm run dev
 ```sh
 npm run build
 ```
+
+### 该项目使用VUE3+TS+LESS编写
+### 数据全部采用韩小韩WebAPI接口
+### 网址：https://api.vvhan.com/
