@@ -9,7 +9,7 @@
         }">
       </a-empty>
     </span>
-    <span>
+    <span v-else>
       <a-spin :spinning="loading">
         <div class="cont">
           <div class="date">时间：{{ bingUrl.date }}</div>
@@ -27,15 +27,17 @@
 /* 引入 */
 import { ref, reactive } from 'vue';
 import axios from 'axios';
+
 /* 定义 imgUrl 接口 */
 interface imgUrl {
   date: number;
   title: string;
   url: string;
 }
+
 /* 数据 */
 let bingUrl = reactive<imgUrl>({
-  date: '',
+  date: 10000000,
   title: '',
   url: '',
 });
@@ -43,10 +45,11 @@ const loading = ref<boolean>(false);
 
 /* 方法 */
 const getBingImg = async () => {
+  bingUrl.url = 'null';
   loading.value = true;
   try {
     const { data } = await axios.get('https://api.vvhan.com/api/bing?type=json&rand=sj');
-    console.log(data);
+    // console.log(data);
     if (data.success) {
       bingUrl = data.data;
     } else {
@@ -63,31 +66,32 @@ const getBingImg = async () => {
 <style lang="less" scoped>
 #bingPicture {
   .cont {
-    border: 1px solid red;
+    margin-top: 1%;
+    // border: 1px solid red;
     background-color: black;
     height: 600px;
     position: relative;
     .date {
       position: absolute;
       font-size: 30px;
-      top: 20%;
-      left: 4%;
+      top: 15%;
+      left: 5%;
       color: white;
     }
     .title {
       position: absolute;
       top: 30%;
-      left: 10px;
+      left: 5%;
       font-size: 20px;
       width: 300px;
       color: white;
     }
     .img {
       position: absolute;
-      top: 10px;
-      right: 10px;
-      width: 1000px;
-      height: 400px;
+      // border: 1px solid white;
+      top: 2.5%;
+      right: -0.5%;
+      width: 1100px;
     }
   }
 }
