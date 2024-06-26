@@ -59,7 +59,7 @@ import {
   SoundOutlined
 } from '@ant-design/icons-vue';
 import { ref } from 'vue';
-const selectedKeys = ref<string[]>(['3']);
+const selectedKeys = ref<string[]>(['1']);
 const collapsed = ref<boolean>(false);
 </script>
 <style scoped lang="less">
