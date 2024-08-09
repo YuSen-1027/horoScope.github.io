@@ -34,7 +34,7 @@ let newLineArr = reactive([]);
 // 遍历原数据把定好的数据存放到 newLineArr 中
 dataList.forEach((item) => {
   let date = new Date(item.timer).getTime() / 1000 + ':' + item.price * 100;
-  newLineArr.push(date as String);
+  newLineArr.push(date);
 });
 // console.log(newLineArr);
 /* 
