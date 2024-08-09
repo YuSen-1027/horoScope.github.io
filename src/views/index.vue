@@ -17,6 +17,10 @@
             <SoundOutlined/>
             <span>胡说八道</span>
           </a-menu-item>
+          <a-menu-item key="4">
+            <DotChartOutlined/>
+            <span>Echarts图表</span>
+          </a-menu-item>
         </a-menu>
       </a-layout-sider>
       <a-layout>
@@ -42,6 +46,12 @@
             <sentencesIndex></sentencesIndex>
           </a-layout-content>
         </span>
+        <span v-if="selectedKeys[0] == '4'">
+          <a-layout-content>
+            <!-- 胡说八道 -->
+            <echartsChart></echartsChart>
+          </a-layout-content>
+        </span>
       </a-layout>
     </a-layout>
   </div>
@@ -51,15 +61,17 @@
 import starSignIndex from '@/views/starSign/index.vue';
 import avatarIndex from '@/views/exquisiteImages/index.vue';
 import sentencesIndex from '@/views/goodSentences/index.vue';
+import echartsChart from '@/views/echartsChart/index.vue';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   StarOutlined,
   PictureOutlined,
-  SoundOutlined
+  SoundOutlined,
+  DotChartOutlined
 } from '@ant-design/icons-vue';
 import { ref } from 'vue';
-const selectedKeys = ref<string[]>(['1']);
+const selectedKeys = ref<string[]>(['4']);
 const collapsed = ref<boolean>(false);
 </script>
 <style scoped lang="less">

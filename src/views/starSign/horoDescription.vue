@@ -54,7 +54,6 @@ interface BgColorItem {
   deg: number;
   colorOne: string;
   colorTwo: string;
-
   colorThree: string;
 }
 const generateRandomColor = (): BgColorItem => {
