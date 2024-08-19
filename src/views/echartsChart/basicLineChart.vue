@@ -9,7 +9,7 @@
 // 引入echarts
 import * as echarts from 'echarts';
 // 引入
-import { onMounted, ref, nextTick, reactive } from 'vue';
+import { onMounted, ref, reactive } from 'vue';
 // 定义 TimeDataItem 接口
 type typeDataList = {
   timer: string;

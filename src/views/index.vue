@@ -21,6 +21,10 @@
             <DotChartOutlined/>
             <span>Echarts图表</span>
           </a-menu-item>
+          <a-menu-item key="5">
+            <ExclamationOutlined/>
+            <span>CSDN问题</span>
+          </a-menu-item>
         </a-menu>
       </a-layout-sider>
       <a-layout>
@@ -48,8 +52,14 @@
         </span>
         <span v-if="selectedKeys[0] == '4'">
           <a-layout-content>
-            <!-- 胡说八道 -->
+            <!-- Echarts -->
             <echartsChart></echartsChart>
+          </a-layout-content>
+        </span>
+        <span v-if="selectedKeys[0] == '5'">
+          <a-layout-content>
+            <!-- 重点问题解决 -->
+            <keyIssues></keyIssues>
           </a-layout-content>
         </span>
       </a-layout>
@@ -62,16 +72,18 @@ import starSignIndex from '@/views/starSign/index.vue';
 import avatarIndex from '@/views/exquisiteImages/index.vue';
 import sentencesIndex from '@/views/goodSentences/index.vue';
 import echartsChart from '@/views/echartsChart/index.vue';
+import keyIssues from '@/views/keyIssues/index.vue';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   StarOutlined,
   PictureOutlined,
   SoundOutlined,
-  DotChartOutlined
+  DotChartOutlined,
+  ExclamationOutlined
 } from '@ant-design/icons-vue';
 import { ref } from 'vue';
-const selectedKeys = ref<string[]>(['4']);
+const selectedKeys = ref<string[]>(['5']);
 const collapsed = ref<boolean>(false);
 </script>
 <style scoped lang="less">
